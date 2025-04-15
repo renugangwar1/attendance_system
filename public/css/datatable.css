@@ -1,0 +1,175 @@
+/* Topbar Styling */
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    box-sizing: border-box;
+    padding: 0 10px; /* Optional: small side padding for breathing room */
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+.topbar {
+    background-color: #ffffff;
+    padding: 12px 20px;
+    color: #212529;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #dee2e6;
+    width: 100%;
+}
+
+/* Button Styling */
+.topbar-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.left-btn {
+    background-color: #ffffff;
+    color: #28a745;
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-weight: bold;
+    text-decoration: none;
+    border: 1px solid #28a745;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.left-btn:hover {
+    background-color: #eafaf1;
+    color: #1e7e34;
+    border-color: #1e7e34;
+}
+
+/* Table Responsive Wrapper */
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+/* DataTable Styling */
+table.dataTable {
+    width: 100%;
+    min-width: 100%;
+    table-layout: fixed !important; /* Let columns size based on content */
+    border-collapse: collapse;
+    background-color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    border: 1px solid #dee2e6;
+}
+
+table.dataTable thead {
+    background-color: #212529;
+    color: #ffffff;
+}
+
+table.dataTable thead th{
+
+    white-space: normal !important;
+    word-break: break-word;
+    padding: 12px 10px;
+    text-align: left;
+}
+
+table.dataTable tbody td {
+    white-space: normal !important;
+    word-break: break-word;
+    padding: 12px 10px;
+    text-align: left;
+}
+/* Optional: Limit max width for long columns */
+table.dataTable td:nth-child(8),
+table.dataTable td:nth-child(9) {
+    max-width: 200px;
+}
+
+/* Hover effect */
+table.dataTable tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+/* Image Styling */
+table.dataTable img {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    max-width: 60px;
+    height: auto;
+}
+
+/* Responsive Indicator Icons Fix */
+table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child:before,
+table.dataTable.dtr-inline.collapsed > tbody > tr > th:first-child:before {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Filter & Length Dropdown */
+.dataTables_wrapper .dataTables_filter input,
+.dataTables_wrapper .dataTables_length select {
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 6px;
+    margin: 5px;
+}
+
+/* Action Button Styling */
+.status-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    font-size: 13px;
+    transition: background-color 0.3s ease;
+}
+
+.status-btn:hover {
+    background-color: #c82333;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .topbar-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .left-btn {
+        width: 100%;
+    }
+
+    table.dataTable {
+        font-size: 13px;
+    }
+    table.dataTable td,
+    table.dataTable th {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    table.dataTable td,
+    table.dataTable th {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    table.dataTable td:nth-child(8),
+    table.dataTable td:nth-child(9) {
+        max-width: none;
+    }
+}

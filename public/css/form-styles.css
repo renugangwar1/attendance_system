@@ -1,0 +1,23 @@
+/* public/css/form-styles.css */
+
+.btn-gradient-primary {
+    background: linear-gradient(45deg, #007bff, #00d4ff);
+    color: white;
+    border: none;
+}
+
+.btn-gradient-primary:hover {
+    background: linear-gradient(45deg, #0056b3, #00aaff);
+    color: white;
+}
+
+/* Optional: additional reusable form styles */
+input.form-control {
+    border-radius: 6px;
+    transition: all 0.3s ease-in-out;
+}
+
+input.form-control:focus {
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    border-color: #007bff;
+}
