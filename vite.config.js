@@ -8,4 +8,19 @@ export default defineConfig({
             refresh: true,
         }),
     ],
+      resolve: {
+
+        alias: {
+            '$': 'jQuery'
+        },
+
+    },
+    server: {
+        host: true,
+        hmr: {
+            host: '192.168.100.115'
+        }
+    }
 });
+
+

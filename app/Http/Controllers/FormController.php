@@ -82,8 +82,8 @@ class FormController extends Controller
             $image = str_replace('data:image/jpeg;base64,', '', $image);
             $image = str_replace(' ', '+', $image);
             $imageName = time() . '.jpg';
-            \File::put(public_path('uploads/' . $imageName), base64_decode($image));
-            $student->image = 'uploads/' . $imageName;
+            \File::put(public_path('uploads/main/' . $imageName), base64_decode($image));
+         
         }
     
         Student::create([
@@ -94,7 +94,7 @@ class FormController extends Controller
             'department' => $request->department,
            
             'address' => $request->address,
-            'image' => $imagePath,
+            'image' => $imageName,
         ]);
     
         return redirect()->route('form.student')->with('success', 'Student form submitted successfully!');
@@ -128,7 +128,7 @@ class FormController extends Controller
             $image = str_replace(' ', '+', $image);
             $imageName = time() . '_visitor.jpg';
             \File::put(public_path('uploads/' . $imageName), base64_decode($image));
-            $visitor->image = 'uploads/' . $imageName;
+            $visitor->image = 'public/uploads/main' . $imageName;
         }
     
         Visitor::create([

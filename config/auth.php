@@ -44,6 +44,10 @@ return [
             'driver' => 'session',
             'provider' => 'faculties',
         ],
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'users', // same provider as 'web'
+        ],
     ],
 
     /*
@@ -71,6 +75,10 @@ return [
         'faculties' => [
             'driver' => 'eloquent',
             'model' => App\Models\Faculty::class,
+        ],
+        'admin' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\User::class, // Adjust the model name if different
         ],
 
         // 'users' => [

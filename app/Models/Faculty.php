@@ -9,7 +9,7 @@ use Illuminate\Notifications\Notifiable;
 class Faculty extends Authenticatable
 {
     use HasFactory, Notifiable;
-
+ 
     protected $fillable = [
         'name',
         'email',

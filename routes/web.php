@@ -5,6 +5,9 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\FacultyController;
+use App\Http\Controllers\ChatController;
+use App\Http\Controllers\UserController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,10 +27,11 @@ Route::get('/', function () {
 Route::get('admin', [AdminController::class,'index']);
 
 Route::prefix('admin')->group(function () {
-Route::get('/login', [AdminController::class,'login']);
+    Route::get('/login', [AdminController::class,'login'])->name('login');
+
 
 Route::post('/login', [AdminController::class,'submit_login']);
-Route::get('/logout', [AdminController::class,'logout']);
+Route::get('/logout', [AdminController::class, 'logout'])->name('admin.logout');
 
 Route::get('form/faculty', [FormController::class, 'facultyForm'])->name('form.faculty');
 Route::get('form/student', [FormController::class, 'studentForm'])->name('form.student');
@@ -53,3 +57,29 @@ Route::get('/today-attendance', [AdminController::class, 'todayAttendance'])->na
 Route::get('/faculty/dashboard', [FacultyController::class, 'dashboard'])->name('faculty.dashboard');
 Route::get('/faculty/attendance', [FacultyController::class, 'facultyAttendance'])->name('faculty.attendance');
 Route::get('/faculty/attendance-log', [AttendanceController::class, 'showAttendanceLog'])->name('faculty.attendance.log');
+
+Route::get('/calendar-guide', function () {
+    return view('calendar');
+})->name('calendar.guide');
+
+// Route::get('/chat', [ChatController::class, 'index'])->name('chat.index')->middleware('auth');
+
+Route::get('/chat', [ChatController::class, 'index'])->name('chat');
+Route::post('/sendmessage', [ChatController::class, 'sendmessage']);
+Route::get('/getnotify', [ChatController::class, 'getNotify']);
+
+
+
+    Route::get('/chat', [ChatController::class, 'index'])->name('chat.index');
+
+
+Route::get('/chat/users', [ChatController::class, 'getUsers']);
+
+
+
+//  Route::get('/chat/messages/{id}', [ChatController::class, 'getMessages']);
+
+Route::get('/chat/messages/{id}', function($id) {
+    return response()->json(['message' => 'Hello, this is a test!']);
+});
+Route::post('/chat/messages', [ChatController::class, 'sendMessage']);
